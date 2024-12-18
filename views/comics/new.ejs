@@ -1,3 +1,4 @@
+<!--log comic page 3000/comics/new-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,24 +7,29 @@
     <title>Log Your Comics</title>
   </head>
   <body>
-    <h1>Log Your Comic!</h1>
+    <h1>New</h1>
+    
     <form action="/comics" method="POST">
       <label for="name">Publisher:</label>
-      <input type="text" name="name" id="name" />
+      <input type="text" name="publisher" id="publisher" /><br>
 
       <label for="name">Title:</label>
-      <input type="text" name="name" id="name" />
+      <input type="text" name="title" id="title" /><br>
+
+      <label for="name">Writer:</label>
+      <input type="text" name="writer" id="writer" /><br>
 
       <label for="name">Artist:</label>
-      <input type="text" name="name" id="name" />
+      <input type="text" name="artist" id="artist" /><br>
 
       <label for="name">Issue:</label>
-      <input type="text" name="name" id="name" /><br>
+      <input type="text" name="issue" id="issue" /><br>
   
       <label for="wishList">Wish List?</label>
       <input type="checkbox" name="wishList" id="wishList" /><br>
   
       <button type="submit">Add Comic</button>
+      <a href="/comics/">Back to log </a>
     </form>
   </body>
 </html>

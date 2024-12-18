@@ -1,12 +1,14 @@
 const mongoose = require('mongoose');
 
 const comicSchema = new mongoose.Schema({
-  publisher: { type: String, required: true },
-  title: { type: String, required: true },
-  artist: { type: String, required: true },
+  publisher: String,
+  title: String,
+  writer: String,
+  artist: String,
   issue: Number,
+  wishList: Boolean,
 });
 
-const Comic = mongoose.model('Comic', comicSchema);
+const Comic = mongoose.model('Comic', comicSchema, 'comics'); //Specify collection name
 
 module.exports = Comic;

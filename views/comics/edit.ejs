@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href=""" />
+</head>
+
+<body>
+  <h1>Edit <%= comic.name %></h1>
+  <form action="/comics/<%=comic._id%>?_methodd=Put" method="POST">
+    <label for="name">Publisher:</label>
+    <input type="text" name="publisher" id="publisher" /><br>
+
+    <label for="name">Title:</label>
+    <input type="text" name="title" id="title" /><br>
+
+    <label for="name">Writer:</label>
+    <input type="text" name="writer" id="writer" /><br>
+
+    <label for="name">Artist:</label>
+    <input type="text" name="artist" id="artist" /><br>
+
+    <label for="name">Issue:</label>
+    <input type="text" name="issue" id="issue" /><br>
+  
+    <label for="wishList">Wish List?</label>
+    <input type="checkbox" name="wishList" id="wishList" /><br>
+  
+    <button type="submit">Update Comic</button>
+  </form>
+  
+</body>
+</html>
