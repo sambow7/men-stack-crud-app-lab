@@ -5,24 +5,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>
-    <%= comic.name %>
+    <%= comic.publisher %> Details
   </title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 
 <body>
   <div class="comic-details"></div>
-  <h1>
-    <%= comic.name %>
-  </h1>
+  <h1>Details</h1>
+  <h2><%= comic.publisher %></h2>
+  <h4>Title:<%= comic.title %></h3>
+  <h4>Writer: <%= comic.writer %></h4>
+  <h4>Artist: <%= comic.artist %></h4>
+  <h4>Issue: <%= comic.issue %></h4>
+  <h4>Wish List: <%= comic.wishList %></h4>
   <% if (comic.issue) { %>
-    <p>comic issue #<% comic.issue %>
+    <p>issue # <%= comic.issue %>
     </p>
     <% } else { %>
       <p>This issue must be special!</p>
       <% } %>
 
         <% if (comic.wishList) { %>
-          <p>Comic is on your wishlist!</p>
+          <p>This comic is on your wishlist!</p>
           <% } else { %>
             <p>Comic is not on your wishlist.</p>
             <% } %>
@@ -33,7 +38,7 @@
                   </button>
                 </form>
                 <a class="edit-link" href="/comics/<%= comic._id %>/edit">
-                  <div class="edit-text">Edit <%= comic.name %>
+                  <div class="edit-text">Edit <%= comic.publisher %>
                   </div>
                 </a>
                 <a class="comic-index-link" href="/comics">

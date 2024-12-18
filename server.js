@@ -5,6 +5,9 @@ const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const app = express();
+const path = require('path');
+const session = require('express-session');
+const authController = require('./controllers/auth.js');
 
 mongoose.connect(process.env.MONGODB_URI,);
 
@@ -14,10 +17,22 @@ mongoose.connection.on('connected', () => {
 
 const Comic = require('./models/comic');
 
+~~~~~~~~~~~~~~~~
 // Middleware
+~~~~~~~~~~~~~~~~
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(morgan('dev'));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+
+app.use("/auth", authController);
 
 
 ~~~~~~~~~~~~~~~~
@@ -25,7 +40,9 @@ app.use(morgan('dev'));
 ~~~~~~~~~~~~~~~~
 // GET
 app.get('/', (req, res) => {
-  res.render("index.ejs");
+  res.render("index.ejs", {
+    user: req.session.user,
+  });
 });
 
 // GET (index)

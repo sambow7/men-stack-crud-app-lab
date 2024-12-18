@@ -3,13 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href=""" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <title>Edit Comic</title>
 </head>
 
 <body>
-  <h1>Edit <%= comic.name %></h1>
+  <h1>Edit</h1>
+  <h2><%= comic.publisher %></h2>
+  <h3>Title:<%= comic.title %></h3>
+  <h4>Writer: <%= comic.writer %></h4>
+  <h4>Artist: <%= comic.artist %></h4>
+  <h4>Issue: <%= comic.issue %></h4>
+  <h4>Wish List: <%= comic.wishList %></h4>
+
   <form action="/comics/<%=comic._id%>?_method=PUT" method="POST">
+
     <label for="name">Publisher:</label>
     <input type="text" name="publisher" id="publisher" /><br>
 
@@ -28,8 +36,10 @@
     <label for="wishList">Wish List?</label>
     <input type="checkbox" name="wishList" id="wishList" /><br>
   
-    <button type="submit">Update Comic</button>
-    <a href="/comics/">Back to log </a>
+    <button type="submit">Update Comic</button><br>
+    <a class="comic-index-link" href="/comics/"> 
+      <div class="index-link-text">Back to Collection</div>
+    </a>
   </form>
   
 </body>
