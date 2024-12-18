@@ -5,7 +5,6 @@ const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 mongoose.connect(process.env.MONGODB_URI,);
 
@@ -32,7 +31,7 @@ app.get('/', (req, res) => {
 // GET (index)
 app.get('/comics', async (req, res) => {
   const allComics = await Comic.find();
-  res.render("comics/index.ejs");
+  res.render("comics/index.ejs", {comics: allComics});
 });
 
 // GET (new)
@@ -54,14 +53,14 @@ app.post('/comics', async (req, res) => {
 // GET (show)
 app.get('/comics/:id', async (req, res) => {
   const foundComic = await Comic.findById(req.params.id);
-  res.render('comics/show.ejs', { comic: foundComic });
+  res.render('comics/show.ejs', {comic: foundComic});
 });
 
 
 // GET (edit)
 app.get('/comics/:id/edit', async (req, res) => {
   const foundComic = await Comic.findById(req.params.id);
-  res.render('comics/edit.ejs', { comic: foundComic });
+  res.render('comics/edit.ejs', {comic: foundComic});
 });
 
 // PUT (update)

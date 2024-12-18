@@ -9,7 +9,7 @@
 
 <body>
   <h1>Edit <%= comic.name %></h1>
-  <form action="/comics/<%=comic._id%>?_methodd=Put" method="POST">
+  <form action="/comics/<%=comic._id%>?_method=PUT" method="POST">
     <label for="name">Publisher:</label>
     <input type="text" name="publisher" id="publisher" /><br>
 
@@ -29,6 +29,7 @@
     <input type="checkbox" name="wishList" id="wishList" /><br>
   
     <button type="submit">Update Comic</button>
+    <a href="/comics/">Back to log </a>
   </form>
   
 </body>
