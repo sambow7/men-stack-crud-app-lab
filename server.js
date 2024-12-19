@@ -8,6 +8,7 @@ const app = express();
 const path = require('path');
 const session = require('express-session');
 const authController = require('./controllers/auth.js');
+const MongoStore = require('connect-mongo');
 
 mongoose.connect(process.env.MONGODB_URI,);
 
@@ -29,6 +30,9 @@ app.use(
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI,
+    }),
   })
 );
 
@@ -43,6 +47,15 @@ app.get('/', (req, res) => {
   res.render("index.ejs", {
     user: req.session.user,
   });
+});
+
+app.get('vip-lounge', (req, res) => {
+  if (req.session.uer) {
+    res.send('Welcome to the party ${req.session.user.username}!');
+  } else {
+    res.send('Sorry, no guests allowed.');
+  }
+  res.redirect('/comics'); // redirect to index page
 });
 
 // GET (index)

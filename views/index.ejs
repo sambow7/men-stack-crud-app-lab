@@ -6,16 +6,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+  <style>
+    .gradient-text {
+      font-size: 2rem;
+      font-weight: bold;
+      background: linear-gradient(10deg, #ff1500, #eafb4f);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
   <title>Comic Books</title>
 </head>
 
 <body>
-  <h1>Comic Books</h1>
-  <img class="comic-pic1"
-    src="https://i2.wp.com/www.comicsbeat.com/wp-content/uploads/2020/03/publisher-support-covid-19.png?fit=1200%2C500&ssl=1"
-    title="comic icons"></a>"
-  <p>An app for collecting your favorite comic books.</p>
-
+  <h1 class="gradient-text">Comic Books</h1>
+  
   <% if (user) { %>
     <h1>Welcome to the app, <%= user.username %>!</h1>
     <p>
@@ -27,10 +33,13 @@
         <a href="/auth/sign-up">Sign up</a> or <a href="/auth/sign-in">Sign in</a>.
       </p>
       <% } %>
+      <p><a href="/vip-lounge">Get into the VIP Users Only lounge!</a></p>
+  <img class="comic-pic1"
+    src="https://i2.wp.com/www.comicsbeat.com/wp-content/uploads/2020/03/publisher-support-covid-19.png?fit=1200%2C500&ssl=1"
+    title="comic icons"></a>"
+  <p>An app for collecting your favorite comic books.</p>
 
-        <p>
-          <a href="/vip-lounge">Get into the VIP Users Only lounge!</a>
-        </p>
+  
 </body>
 
 </html>

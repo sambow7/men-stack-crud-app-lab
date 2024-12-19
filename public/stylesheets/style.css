@@ -1,6 +1,8 @@
 body {
-  background: rgb(185, 185, 185);
-  font-family: Times New Roman;
+  background: rgb(255, 255, 255);
+  font-family: "Bangers", serif;
+  font-weight: 400;
+  font-style: normal;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,6 +11,14 @@ body {
 }
 
 h1 {
-  color: #2a727d;
+  color: #000000;
   text-align: center;
+}
+
+.gradient-text {
+  font-size: 2rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff6f61, #6b5b95);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
